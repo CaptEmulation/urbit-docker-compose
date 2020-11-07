@@ -1,0 +1,30 @@
+version: '2'
+services:
+    urbit:
+        image: captemulation/urbit:1
+        volumes:
+          - ./my-planet-key:/master-key
+          - urbit-data:/urbit
+        ports:
+          - 32123/udp
+        command: 
+          ['-p', '32123', '-t', $URBIT_CMD]
+        
+    frontend:
+        restart: unless-stopped
+        image: staticfloat/nginx-certbot
+        ports:
+          - 80:80/tcp
+          - 443:443/tcp
+        environment:
+            CERTBOT_EMAIL: morpheus.dev@soapbubb.online
+        volumes:
+          - ./conf.d:/etc/nginx/user.conf.d:ro
+          - certbot-etc:/etc/letsencrypt
+          - certbot-var-lib:/var/lib/letsencrypt
+        links:
+          - urbit
+volumes:
+    certbot-etc:
+    certbot-var-lib:
+    urbit-data:
