@@ -1,6 +1,6 @@
 # urbit-docker-compose
 
-A self-contained nginx reverse proxy with certbot to fetch Let's Encrypt certificates.
+A self-contained urbit installation with nginx reverse proxy with certbot to fetch Let's Encrypt certificates.
 
 # Requirements
 
