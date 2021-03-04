@@ -2,6 +2,8 @@
 
 A self-contained urbit installation with nginx reverse proxy with certbot to fetch Let's Encrypt certificates.
 
+[![awesome urbit badge](https://img.shields.io/badge/~-awesome%20urbit-lightgrey)](https://github.com/urbit/awesome-urbit)
+
 # Requirements
 
  - docker
